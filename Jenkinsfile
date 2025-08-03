@@ -28,12 +28,12 @@ pipeline {
                         usernameVariable:'DOCKER_USER',
                         passwordVariable:'DOCKER_PASS'
                     )]) {
-                        bat 'echo IMAGE_NAME = %IMAGE_NAME%'
-                        bat 'echo DOCKER_HUB_REPO = %DOCKER_HUB_REPO%'
-                        bat 'echo DOCKER_IMAGE = %DOCKER_IMAGE%'
-                        bat 'echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin'
-                        bat 'docker tag %IMAGE_NAME% %DOCKER_IMAGE%'
-                        bat 'docker push %DOCKER_IMAGE%'
+                        sh 'echo "IMAGE_NAME=$IMAGE_NAME"'
+                        sh 'echo "DOCKER_HUB_REPO=$DOCKER_HUB_REPO"'
+                        sh 'echo "DOCKER_IMAGE=$DOCKER_IMAGE"'
+                        sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
+                        sh 'docker tag $IMAGE_NAME $DOCKER_IMAGE'
+                        sh 'docker push $DOCKER_IMAGE'
                     }
                 }
             }
