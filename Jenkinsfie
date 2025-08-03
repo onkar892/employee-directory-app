@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    environment {
+        IMAGE_NAME = "employee-app"
+        DOCKER_HUB_REPO = "onkar/employee-app"
+    }
+    stages {
+        stage('checkout') {
+            steps {
+                    git 'https://github.com/<your-username>/employee-app.git'
+            }
+        }
+    }
+}
