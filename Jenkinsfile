@@ -46,7 +46,7 @@ pipeline {
                     string(credentialsId: 'azure-tenant-id', variable: 'AZURE_TENANT_ID'),
                     usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')
                 ]) {
-                    sh './scripts/deploy.sh'
+                    powershell './scripts/deploy.ps1'
                 }
             }
         }
