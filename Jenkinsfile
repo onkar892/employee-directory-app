@@ -6,7 +6,7 @@ pipeline {
         AZURE_RESOURCE_GROUP = 'myrg'
         AZURE_APP_SERVICE = 'app'
         //AZURE_REGION = 'west'
-        DOCKER_IMAGE = 'onkar892/employee-app'
+        DOCKER_IMAGE = 'onkar892/employee-app:latest'
     }
     stages {
         stage('checkout') {
@@ -28,8 +28,8 @@ pipeline {
                         passwordVariable:'DOCKER_PASS'
                     )]) {
                         sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
-                        sh 'docker tag $IMAGE_NAME $DOCKER_HUB_REPO:latest'
-                        sh 'docker push $DOCKER_HUB_REPO:latest'
+                        sh 'docker tag $IMAGE_NAME $DOCKER_IMAGE'
+                        sh 'docker push $DOCKER_IMAGE'
                     }
                 }
             }
