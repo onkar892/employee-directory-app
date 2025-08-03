@@ -1,9 +1,13 @@
 #!/bin/bash
 
-resource_group = "myrg"
-app_service_name = "app"
-docker_image = "image"
-region = "west"
+# Azure login using Service Principal
+echo "Authenticating with Azure..." 
+
+az login --service-principal \
+  --username "$client_id" \
+  --password "$client_secret" \
+  --tenant "$tenant_id"
+
 
 echo "deploying to azure app service......"
 

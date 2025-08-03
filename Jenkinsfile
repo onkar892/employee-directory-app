@@ -3,6 +3,10 @@ pipeline {
     environment {
         IMAGE_NAME = 'employee-app'
         DOCKER_HUB_REPO = 'https://app.docker.com/accounts/onkar892'
+        AZURE_RESOURCE_GROUP = 'myrg'
+        AZURE_APP_SERVICE = 'app'
+        //AZURE_REGION = 'west'
+        DOCKER_IMAGE = 'onkar892/employee-app:latest'
     }
     stages {
         stage('checkout') {
@@ -32,7 +36,14 @@ pipeline {
         }
         stage('deploy to azure') {
             steps {
-                sh './scripts/deploy.sh'
+                withCredentials([
+                    string(credentialsId: 'azure-client-id', variable: 'AZURE_CLIENT_ID'),
+                    string(credentialsId: 'azure-client-secret', variable: 'AZURE_CLIENT_SECRET'),
+                    string(credentialsId: 'azure-tenant-id', variable: 'AZURE_TENANT_ID'),
+                    usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')
+                ]) {
+                    sh './scripts/deploy.sh'
+                }
             }
         }
     }
