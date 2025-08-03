@@ -2,12 +2,12 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME = 'employee-app'
-        DOCKER_HUB_REPO = 'onkar/employee-app'
+        DOCKER_HUB_REPO = 'https://app.docker.com/accounts/onkar892'
     }
     stages {
         stage('checkout') {
             steps {
-                    git 'https://github.com/<your-username>/employee-app.git'
+                    git 'https://github.com/onkar892/employee-directory-app.git'
             }
         }
         stage('Build Docker Image') {
