@@ -6,7 +6,7 @@ pipeline {
         AZURE_RESOURCE_GROUP = 'myrg'
         AZURE_APP_SERVICE = 'app'
         //AZURE_REGION = 'west'
-        DOCKER_IMAGE = 'onkar892/employee-app:latest'
+        DOCKER_IMAGE = 'onkar892/employee-app'
     }
     stages {
         stage('checkout') {
