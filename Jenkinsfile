@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME .'
+                bat 'docker build -t $IMAGE_NAME .'
             }
         }
         stage('Push to Docker Hub') {
@@ -27,12 +27,12 @@ pipeline {
                         usernameVariable:'DOCKER_USER',
                         passwordVariable:'DOCKER_PASS'
                     )]) {
-                        sh 'echo "IMAGE_NAME = $IMAGE_NAME"'
-                        sh 'echo "DOCKER_HUB_REPO = $DOCKER_HUB_REPO"'
-                        sh 'echo "DOCKER_IMAGE = $DOCKER_IMAGE"'
-                        sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
-                        sh 'docker tag $IMAGE_NAME $DOCKER_IMAGE'
-                        sh 'docker push $DOCKER_IMAGE'
+                        bat 'echo IMAGE_NAME = %IMAGE_NAME%'
+                        bat 'echo DOCKER_HUB_REPO = %DOCKER_HUB_REPO%'
+                        bat 'echo DOCKER_IMAGE = %DOCKER_IMAGE%'
+                        bat 'echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin'
+                        bat 'docker tag %IMAGE_NAME% %DOCKER_IMAGE%'
+                        bat 'docker push %DOCKER_IMAGE%'
                     }
                 }
             }
@@ -45,7 +45,7 @@ pipeline {
                     string(credentialsId: 'azure-tenant-id', variable: 'AZURE_TENANT_ID'),
                     usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')
                 ]) {
-                    sh './scripts/deploy.sh'
+                    bat './scripts/deploy.bat'
                 }
             }
         }
