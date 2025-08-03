@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                    git 'https://github.com/onkar892/employee-directory-app.git'
+                    git branch: 'feature/jenkins-pipeline', url: 'https://github.com/onkar892/employee-directory-app.git'
             }
         }
         stage('Build Docker Image') {
