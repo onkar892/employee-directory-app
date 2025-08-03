@@ -16,8 +16,8 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                bat 'docker --version'
-                bat 'docker build -t $IMAGE_NAME .'
+                sh 'docker --version'
+                sh 'docker build -t $IMAGE_NAME .'
             }
         }
         stage('Push to Docker Hub') {
@@ -46,7 +46,7 @@ pipeline {
                     string(credentialsId: 'azure-tenant-id', variable: 'AZURE_TENANT_ID'),
                     usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')
                 ]) {
-                    bat './scripts/deploy.bat'
+                    sh './scripts/deploy.sh'
                 }
             }
         }
