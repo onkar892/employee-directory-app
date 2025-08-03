@@ -27,6 +27,9 @@ pipeline {
                         usernameVariable:'DOCKER_USER',
                         passwordVariable:'DOCKER_PASS'
                     )]) {
+                        sh 'echo "IMAGE_NAME=$IMAGE_NAME"'
+                        sh 'echo "DOCKER_HUB_REPO=$DOCKER_HUB_REPO"'
+                        sh 'echo "DOCKER_IMAGE=$DOCKER_IMAGE"'
                         sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
                         sh 'docker tag $IMAGE_NAME $DOCKER_IMAGE'
                         sh 'docker push $DOCKER_IMAGE'
