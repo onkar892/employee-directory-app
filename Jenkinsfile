@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME = 'employee-app'
-        DOCKER_HUB_REPO = 'onkar892/employee-app:latest'
+        DOCKER_HUB_REPO = 'onkar892/employee-app'
         AZURE_RESOURCE_GROUP = 'myrg'
         AZURE_APP_SERVICE = 'app'
         //AZURE_REGION = 'west'
