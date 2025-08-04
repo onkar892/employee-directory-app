@@ -54,6 +54,7 @@ pipeline {
                         "DOCKER_PASS=$DOCKER_PASS"
                     ]) {
                          powershell './scripts/deploy.ps1'
+                    }
                 }
             }
         }
