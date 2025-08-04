@@ -3,8 +3,8 @@ pipeline {
     environment {
         IMAGE_NAME = 'employee-app'
         DOCKER_HUB_REPO = 'onkar892/employee-app'
-        AZURE_RESOURCE_GROUP = 'myrg'
-        AZURE_APP_SERVICE = 'app'
+        AZURE_RESOURCE_GROUP = 'employee-app'
+        AZURE_APP_SERVICE = 'employee-OSapp'
         //AZURE_REGION = 'west'
         DOCKER_IMAGE = 'onkar892/employee-app:latest'
     }
