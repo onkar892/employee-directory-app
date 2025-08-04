@@ -1,30 +1,45 @@
-🚀 Employee Directory App – DevOps CI/CD Demo
-This repository showcases a simple Flask-based web application deployed through a complete CI/CD pipeline using popular DevOps tools and services.
+# 🚀 Employee Directory App – DevOps CI/CD Demo
 
-🔧 Tech Stack & Tools
-Git & GitHub – Version control and collaboration
+This repository showcases a simple **Flask-based web application** deployed using a complete **CI/CD pipeline** built with popular DevOps tools.
 
-Docker – Containerization of the application
+---
 
-Jenkins – CI/CD pipeline orchestration
+## 🔧 Tech Stack & Tools
 
-Azure App Service (Linux) – Deployment target
+- **Git & GitHub** – Source control and collaboration  
+- **Docker** – Containerization of the application  
+- **Jenkins** – Automated CI/CD pipelines  
+- **Azure App Service (Linux)** – Cloud deployment  
+- **PowerShell & Azure CLI** – Deployment automation
 
-PowerShell & Azure CLI – Scripting and automation
+---
 
-📌 What This Project Demonstrates
-End-to-end automation of app deployment
+## 📌 What This Project Demonstrates
 
-Docker image build and push to Docker Hub
+- ✅ End-to-end CI/CD automation  
+- 🐳 Docker image build & push to Docker Hub  
+- 🔐 Secure secrets management in Jenkins  
+- ⚙️ PowerShell scripting for Azure deployment  
+- 🚀 Real-world DevOps pipeline implementation
 
-Secure credentials handling in Jenkins
+---
 
-PowerShell scripting for Azure CLI deployment
+## 📂 Branch Info
 
-Hands-on DevOps workflow using real tools
+> 🔹 The working pipeline and deployment code are available on the `feature/jenkins-pipeline` branch.
 
-📂 Branch Info
-🔹 The working pipeline and deployment code are located on the feature/jenkins-pipeline branch.
+---
 
-💬 About This Demo
-This project was created to demonstrate practical CI/CD workflows and cloud-native deployment, ideal for DevOps engineers and learners. It’s part of my personal portfolio and DevOps tooling practice.
+## 💬 About This Demo
+
+This project was created as part of my DevOps learning and portfolio. It demonstrates real-world skills in CI/CD automation, infrastructure-as-code, and cloud-native app deployment — ideal for DevOps engineers, enthusiasts, and learners.
+
+---
+
+## 🛡️ Security Note
+
+Sensitive credentials are stored securely in Jenkins using credential bindings. No secrets are exposed in the code or logs.
+
+---
+
+Feel free to fork or explore this project if you're practicing DevOps tooling or pipelines.
